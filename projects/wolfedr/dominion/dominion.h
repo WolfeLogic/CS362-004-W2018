@@ -85,7 +85,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 		   struct gameState *state);
 /* Responsible for initializing all supplies, and shuffling deck and
    drawing starting hands for all players.  Check that 10 cards selected
-   are in fact (different) kingdom cards, and that numPlayers is valid. 
+   are in fact (different) kingdom cards, and that numPlayers is valid.
 
 Cards not in game should initialize supply position to -1 */
 
@@ -127,5 +127,25 @@ int scoreFor(int player, struct gameState *state);
 int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
+
+/******************************************************************************
+             Function Declarations for A2 Refactor
+******************************************************************************/
+
+int great_hall_card(int handPos, struct gameState * state);
+// CLEAN function. No bugs
+
+int council_room_card(int handPos, struct gameState * state);
+// BUG: Should provide another BUY turn, but does not
+
+int village_card(int handPos, struct gameState * state);
+// BUG: Provides four (4) ACTION turns rather than two (2)
+
+int adventurer_card(struct gameState * state);
+// BUG: Increments the drawn treasure by four (4) rather than one (1)
+
+int smithy_card(int handPos, struct gameState * state);
+// BUG: Draws four (4) cards but should only draw three (3) 
+/*****************************************************************************/
 
 #endif
