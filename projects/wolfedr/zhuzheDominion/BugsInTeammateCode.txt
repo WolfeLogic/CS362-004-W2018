@@ -1,0 +1,105 @@
+Title:  	Smithy Card Effect Error
+
+Class:		Serious Bug
+
+Date:  		March 4, 2018     
+Reported By:   	Drew Wolfe (wolfedr)
+Email:      	wolfedr@oregonstate.edu
+
+
+File(s):        dominion.c               
+Function(s):	int play_smithy();         
+Line(s):	675 - 686      
+
+Is it reproducible: Yes
+
+Description
+--------------------------------------------------------------------------------
+In running a unit test (cardtest1.c) that validates the effect of the Smithy 
+Card, three (3)of the tests failed (HAND COUNT, DECK COUNT, SCORE). Upon closer
+inspection, it was clear that the card mistakenly draws 4 cards rather than 3. 
+
+Steps to Produce/Reproduce
+--------------------------------------------------------------------------------
+Compile the game code and play the game:
+1. $ make all
+2. $ ./playdom 956
+This may need to be performed more than once in the event the Smithy Card is not
+played over the course of game play. In the event that it is, it should be clear
+that an extra card is drawn.
+
+Expected Results
+--------------------------------------------------------------------------------
+The Smithy Card should draw three (3), not four (4) cards during a single turn
+
+Actual Results
+--------------------------------------------------------------------------------
+The Smithy Card draws four (4) cards
+
+Workarounds
+--------------------------------------------------------------------------------
+I could not manage a workaround w/o manipulating the game code. Occationally the
+Smithy Card is not drawn during gameplay, in which case the bug does not have an
+effect
+
+Other Information
+--------------------------------------------------------------------------------
+It's potentially worth reviewing the README file to aid in game compilation
+
+********************************************************************************
+
+Title:  	Village Card Effect Error
+
+Class:		Serious Bug
+
+Date:  		March 4, 2018     
+Reported By:   	Drew Wolfe (wolfedr)
+Email:      	wolfedr@oregonstate.edu
+
+
+File(s):	dominion.c         
+Function(s):	int play_village();         
+Line(s):	690 - 701    
+
+Is it reproducible: Yes 
+
+Description
+--------------------------------------------------------------------------------
+In running a unit test (cardtest4.c) that validates the effect of the Village 
+Card, one (1)of the tests failed (ACTIONS). Upon closer inspection, it was clear
+that the card mistakenly provides one less ACTION than it should.
+
+Steps to Produce/Reproduce
+--------------------------------------------------------------------------------
+Compile the game code and play the game:
+1. $ make all
+2. $ ./playdom 956
+This may need to be performed more than once in the event the Village Card is not
+played over the course of game play. In the event that it is, it should be clear
+that it does not provide the correct number of ACTION outputs.
+
+Expected Results
+--------------------------------------------------------------------------------
+The Village Card should grant two (2) ACTION turns, not one (1) during a single 
+turn
+
+Actual Results
+--------------------------------------------------------------------------------
+The Village Card grants a single (1) ACTION turn during a single turn
+
+Workarounds
+--------------------------------------------------------------------------------
+I similarly could not manage a workaround w/o manipulating the game code. 
+Occationally the Village Card is not drawn during gameplay, in which case the bug
+does not have an effect
+
+Other Information
+--------------------------------------------------------------------------------
+It's potentially worth reviewing the README file to aid in game compilation
+
+********************************************************************************
+
+REFERENCE: Template courtesy of noverse.com (http://noverse.com/blog/2012/06/how-to-write-a-good-bug-report/)
+
+
+
