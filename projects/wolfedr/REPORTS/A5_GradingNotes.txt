@@ -1,0 +1,1 @@
+-15: You need to document a bug in your own code and how you fixed it. Also, bugs and logic errors are usually exposed by well-written tests. Debuggers like GDB are just a tool to identify where the error occurs.
